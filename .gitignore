@@ -35,3 +35,8 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### github에 올리면 안되는 것###
+.gradle/*
+build/*
+out/*
