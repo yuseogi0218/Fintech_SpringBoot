@@ -1,3 +1,0 @@
-# Fintech_SpringBoot
-
-### test
