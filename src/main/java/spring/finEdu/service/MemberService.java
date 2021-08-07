@@ -32,7 +32,6 @@ public class MemberService {
         return memberRepository.save(member);
     }
 
-
     public List<Object> countByOrgGroup(Boolean isActive) {
         return memberRepository.countOrgGroup(isActive);
     }

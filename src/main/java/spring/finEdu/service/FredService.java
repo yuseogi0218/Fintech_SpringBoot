@@ -26,9 +26,9 @@ public class FredService {
 
     // Thread-safe Values
     final String baseUrl = "https://api.stlouisfed.org";
-    final static ParameterizedTypeReference<Map<String, Object>> mapTypeReference = new ParameterizedTypeReference<Map<String, Object>>() {};
-    //
-    final static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    final public static ParameterizedTypeReference<Map<String, Object>> mapTypeReference = new ParameterizedTypeReference<>() {
+    };
+    final public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     // Get property from application.properties
     @Value("${fred.apikey}") // application.properties 의 값과 연결
