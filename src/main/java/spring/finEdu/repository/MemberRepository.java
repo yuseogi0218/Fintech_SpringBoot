@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository //Bean에 등록하여 사용
 public interface MemberRepository extends PagingAndSortingRepository<Member, Long> {
 
-    Optional<Member> findBySeqAndName(Long seq, String name); // 메소드 이름을 보고 쿼리문 자동 생성 해준다. 규칙 --> spring data 문서에 있음.
+    Optional<Member> findBySeqAndName(Long key, String name); // 메소드 이름을 보고 쿼리문 자동 생성 해준다. 규칙 --> spring data 문서에 있음.
 
     @Query("SELECT m.org, count(m.seq) FROM Member m where m.active = ?1 group by m.org")
     List<Object> countOrgGroup(Boolean isActive);

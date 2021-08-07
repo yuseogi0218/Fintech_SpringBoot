@@ -29,7 +29,7 @@ public class MemberServiceTest {
         member.setActive(true);
 
         //When : 멤버가 가입괴면 (MemberService, 스프링 컨텍스트가 사용된걸 확인)
-        Member storedMember = memberService.saveMember(member);
+        Member storedMember = memberService.addUser(member);
 
         //Then : 그 멤버를 다시 찾을때 둘의 이름이 같아야 한다.
         Member foundMember = memberRepository.findById(storedMember.getSeq()).get();

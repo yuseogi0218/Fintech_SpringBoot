@@ -10,7 +10,7 @@ import spring.finEdu.entity.FredData;
 // DTO Service <-> Controller <-> DTO
 public class Observation {
 
-    String observationDate;
+    String date;
     Double value;
 
     // Entity Converter -> Entity 를 DTO로 변경해주는것

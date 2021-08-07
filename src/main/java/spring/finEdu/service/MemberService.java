@@ -16,23 +16,23 @@ public class MemberService {
 
     final MemberRepository memberRepository;
 
-    public String greet(String name) {
+    public String greet(String name){
         return String.format("Welcome, %s", name);
     }
 
-    public Member findById(Long seq, String name) {
-        return memberRepository.findBySeqAndName(seq, name).orElse(null);
+    public Member findMember(Long key) {
+        return memberRepository.findById(key).orElse(null);
     }
 
-    public Member findById(Long seq) {
-        return memberRepository.findById(seq).orElse(null);
+    public Member findMember(Long key, String name) {
+        return memberRepository.findBySeqAndName(key, name).orElse(null);
     }
 
-    public Member saveMember(Member member) {
+    public Member addUser(Member member) {
         return memberRepository.save(member);
     }
 
-    public List<Object> countByOrgGroup(Boolean isActive) {
+    public List<Object> countOrgGroup(Boolean isActive) {
         return memberRepository.countOrgGroup(isActive);
     }
 }

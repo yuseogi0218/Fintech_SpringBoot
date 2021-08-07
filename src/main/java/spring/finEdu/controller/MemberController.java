@@ -22,26 +22,27 @@ public class MemberController {
 
     @GetMapping("/info")
     public Map<String, Object> getUserInfo(@AuthenticationPrincipal OAuth2User principal) {
-        return Collections.singletonMap("name", principal.getAttribute("name"));
+            return Collections.singletonMap("name", principal.getAttributes().get("login"));
+
     }
 
     @PostMapping("/save")
     public void saveMember(@RequestBody Member member) {
-        memberService.saveMember(member);
+        memberService.addUser(member);
     }
 
     @GetMapping("/{key}")
     public Member getMember(@PathVariable("key") Long key, @RequestParam(required = false) String name) {
         if (name != null) {
-            return memberService.findById(key, name); //findById() → spring data JPA 를 통하여 만들어진 함수
+            return memberService.findMember(key, name); //findById() → spring data JPA 를 통하여 만들어진 함수
         } else {
-            return memberService.findById(key); //findById() → spring data JPA 를 통하여 만들어진 함수
+            return memberService.findMember(key); //findById() → spring data JPA 를 통하여 만들어진 함수
         }
 
     }
 
     @GetMapping("/api/count")
     public List<Object> countByOrgGroup(@RequestParam Boolean isActive) {
-        return memberService.countByOrgGroup(isActive);
+        return memberService.countOrgGroup(isActive);
     }
 }
